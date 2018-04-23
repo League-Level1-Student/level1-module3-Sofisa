@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 public class ChuckleClicker implements ActionListener {
 public static void main(String[] args) {
 	ChuckleClicker game = new ChuckleClicker();
@@ -15,6 +16,7 @@ public static void main(String[] args) {
 }
 JButton joke;
 JButton punchline;
+JTextField fieldone;
 public void makeButtons(){
 	joke = new JButton();
 	joke.setText("joke");
@@ -29,6 +31,8 @@ public void makeButtons(){
 	window.add(panel);
 	panel.add(joke);
 	panel.add(punchline);
+
+	
 }
 @Override
 public void actionPerformed(ActionEvent e) {
