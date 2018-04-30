@@ -20,6 +20,7 @@ JFrame window;
 char currentLetter;
 JLabel value;
 JPanel panel;
+
 public void MakeButtons() {
 	window = new JFrame();
 	window.setSize(800,400);
