@@ -1,4 +1,8 @@
 
+import ddf.minim.*;
+Minim minim;  
+AudioSample sound;
+
 float birdYVelocity = 0;   
 float gravity = 0.75;
 
@@ -13,6 +17,8 @@ int score = 0;
 void setup ()
 {
   size (1000,1000);
+  minim = new Minim (this);
+sound = minim.loadSample("flappybird.wav", 128);
 }
 
 void draw()
@@ -23,8 +29,11 @@ void draw()
   ellipse(birdX, birdY, 35, 35);
   fill(85, 119, 68);
   stroke(85, 119, 68);
+  fill(225,153,0);
+  triangle(birdX + 10, birdY, birdX + 25,birdY + 7, birdX + 3, birdY + 15);
   fill(0, 0, 0);
   ellipse(birdX + 3, birdY - 3, 5, 5);
+  fill(85, 136, 51);
   rect(pipeX, 0, 100, pipeHeight);
   rect(pipeX, pipeHeight + 200, 100, 1000);
   birdYVelocity += gravity;
@@ -35,12 +44,15 @@ void draw()
   {
     System.exit(0);
   }
+  
   text("WILSION\'S SCORE: " + score, 10, 10);
+  
 }
 
 void mousePressed()
 {
   birdYVelocity = -13;
+  sound.trigger();
 }
 
 void pipeTeleport()
@@ -49,6 +61,7 @@ void pipeTeleport()
   {
    pipeX = 1000; 
    pipeHeight = (int) random(100, 400);
+   score++;
   }
 }
 
