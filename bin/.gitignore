@@ -5,6 +5,7 @@
 /GetLatestTweet.class
 /Jeopardy.class
 /Movie.class
+/MyClass.class
 /NetflixQueue.class
 /PigLatinTranslator.class
 /PigLatinUI.class
@@ -17,12 +18,11 @@
 /extra/
 /fortune teller.png
 /gridworld.jar
+/illusion.jpg
+/illusions.jpg
 /jeopardy.wav
 /kermit.jpg
 /lemon.jpg
 /moo.wav
 /solar.jpg
 /twitter4j-core-3.0.5.jar
-/illusions.jpg
-/illusion.jpg
-/MyClass.class

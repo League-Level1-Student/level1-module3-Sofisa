@@ -9,14 +9,40 @@ class Car {
     this.size = size;
     this.speed = speed;
   }
+  int getX()
+  {
+    return x;
+  }
+  int getY()
+  {
+   return y; 
+  }
+  int getSize()
+  {
+   return size; 
+  }
+  void move()
+  {
+    x+=speed;
+    if(x > width)
+    {
+      x= 0;
+    }else if (x < 0)
+    {
+     x = 400; 
+    }
+  }
+  
   void display() 
   {
     fill(0, 255, 0);
     rect(x, y, size, 50);
   }
 }
-Car c = new Car(5,200,60,50);
-Car a = new Car(15, 100, 50, 50);
+Car c = new Car(5,200,60,5);
+Car a = new Car(15, 100, 50, -5);
+Car b = new Car (20,300,50, -4);
+Car d = new Car (10, 50, 65, 1);
 int frogX = 200;
 int frogY = 375;
 int hop = 20;
@@ -30,6 +56,16 @@ void draw() {
   boundaries();
   c.display();
   a.display();
+  b.display();
+  d.display();
+  c.move();
+  a.move();
+  b.move();
+  d.move();
+  intersects(a);
+  intersects(b);
+  intersects(c);
+  intersects(d);
 }
 void boundaries() {
   if (frogX < 0) {
@@ -45,6 +81,16 @@ void boundaries() {
     frogY = 400;
   }
 }
+boolean intersects (Car car) {
+  if ((frogY > car.getY() && frogY < car.getY() +50)&&
+  (frogX > car.getX() && frogX < car.getX()+car.getSize()))
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }}
 void keyPressed()
 {
   if (key == CODED) {
